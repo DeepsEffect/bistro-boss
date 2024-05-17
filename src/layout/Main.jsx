@@ -1,9 +1,10 @@
 import { Outlet } from "react-router-dom";
+import Nav from "../pages/Shared/Nav/Nav";
 
 const Main = () => {
     return (
         <div>
-            <h2>Hello world</h2>
+            <Nav></Nav>
             <Outlet></Outlet>
         </div>
     );

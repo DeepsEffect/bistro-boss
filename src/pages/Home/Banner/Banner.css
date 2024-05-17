@@ -1,0 +1,17 @@
+/* .carousel .thumb .selected{
+    border: 2px solid saddlebrown;
+} */
+/* .selected{
+    border: none !important; 
+    background-color: green;
+    outline: none;
+} */
+
+.carousel .slide{
+    max-height: 804px
+}
+
+/* .carousel .slide img {
+    height: 804px; 
+    width: auto;
+} */

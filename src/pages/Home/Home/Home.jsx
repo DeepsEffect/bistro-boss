@@ -5,7 +5,10 @@ const Home = () => {
   return (
     <div>
       <Banner />
-      <OrderOnline />
+      {/* body section */}
+      <section className="container mx-auto">
+        <OrderOnline />
+      </section>
     </div>
   );
 };

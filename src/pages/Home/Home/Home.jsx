@@ -3,6 +3,7 @@ import Banner from "../Banner/Banner";
 import FromOurMenu from "../FromOurMenu/FromOurMenu";
 import OrderOnline from "../OrderOnline/OrderOnline";
 import bannerImg from "../../../assets/home/banner.jpg";
+import Testimonials from "../Testimonials/Testimonials";
 
 const Home = () => {
   return (
@@ -19,6 +20,7 @@ const Home = () => {
           }
         />
         <FromOurMenu />
+        <Testimonials />
       </section>
     </div>
   );

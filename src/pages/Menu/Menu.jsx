@@ -63,7 +63,7 @@ const Menu = () => {
         />
       </section>
 
-      {/* Pizza */}
+      {/* salad */}
       <section className="space-y-10 mt-20">
         {/* section banner */}
         <SectionBannerParallax img={saladImg} bannerTitle={'Salad'} bannerDesc={'choose and enjoy our various categories of Salads'} />
@@ -76,7 +76,7 @@ const Menu = () => {
         />
       </section>
 
-      {/* Pizza */}
+      {/* soup */}
       <section className="space-y-10 mt-20">
         {/* section banner */}
         <SectionBannerParallax img={soupImg} bannerTitle={'Soup'} bannerDesc={'choose and enjoy our various categories of Soups'} />

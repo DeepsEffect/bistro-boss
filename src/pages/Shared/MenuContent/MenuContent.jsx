@@ -1,18 +1,13 @@
-import { useEffect, useState } from "react";
 import { Button } from "@material-tailwind/react";
+import useMenu from "../../../hooks/useMenu";
 
 const MenuContent = () => {
-  const [menu, setMenu] = useState([]);
-  useEffect(() => {
-    fetch("menu.json")
-      .then((res) => res.json())
-      .then((data) => setMenu(data));
-  }, []);
+  const [menu] = useMenu();
   return (
     <div>
       {/* menu content */}
       <section className="grid grid-cols-2 gap-4">
-        {menu.slice(0, 6).map((menuItem) => (
+        {menu?.slice(0, 6).map((menuItem) => (
           <div key={menuItem._id}>
             {/* popular menu section */}
             <section className="flex items-center gap-4">

@@ -1,12 +1,12 @@
 /* eslint-disable react/prop-types */
 import { Parallax } from "react-parallax";
 
-const SectionBannerParallax = ({img, bannerTitle, bannerDesc}) => {
+const SectionBannerParallax = ({ img, bannerTitle, bannerDesc }) => {
   return (
     <Parallax
       bgImage={img}
       strength={300}
-      className="relative overflow-hidden bg-cover bg-no-repeat "
+      className="relative overflow-hidden bg-cover bg-no-repeat"
     >
       <div
         style={{
@@ -23,9 +23,7 @@ const SectionBannerParallax = ({img, bannerTitle, bannerDesc}) => {
                 {bannerTitle}
                 <br />
               </h1>
-              <p className="max-w-2xl">
-               {bannerDesc}
-              </p>
+              <p className="max-w-2xl">{bannerDesc}</p>
             </div>
           </div>
         </div>

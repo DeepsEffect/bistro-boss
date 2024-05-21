@@ -9,7 +9,6 @@ import SectionTitle from "../../../components/SectionTitle/SectionTitle";
 
 import "@smastrom/react-rating/style.css";
 import { useEffect, useState } from "react";
-import ReviewSlider from "./ReviewSlider";
 import { Rating } from "@smastrom/react-rating";
 
 const Testimonials = () => {

@@ -1,7 +1,8 @@
+import SectionBannerParallax from "../../Shared/SectionBannerParallax/SectionBannerParallax";
 import Banner from "../Banner/Banner";
 import FromOurMenu from "../FromOurMenu/FromOurMenu";
-import MenuParallax from "../MenuParallax/MenuParallax";
 import OrderOnline from "../OrderOnline/OrderOnline";
+import bannerImg from "../../../assets/home/banner.jpg";
 
 const Home = () => {
   return (
@@ -10,7 +11,13 @@ const Home = () => {
       {/* body section */}
       <section className="container mx-auto">
         <OrderOnline />
-        <MenuParallax />
+        <SectionBannerParallax
+          img={bannerImg}
+          bannerTitle={"Bistro Boss"}
+          bannerDesc={
+            "Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus, libero accusamus laborum deserunt ratione dolor officiis praesentium! Deserunt magni aperiam dolor eius dolore at, nihil iusto ducimus incidunt quibusdam nemo."
+          }
+        />
         <FromOurMenu />
       </section>
     </div>

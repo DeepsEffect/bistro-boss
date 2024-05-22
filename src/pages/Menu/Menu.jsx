@@ -15,7 +15,6 @@ const Menu = () => {
   const pizza = menu?.filter((item) => item.category === "pizza");
   const salad = menu?.filter((item) => item.category === "salad");
   const soup = menu?.filter((item) => item.category === "soup");
-  
   return (
     <div>
       {/* menu banner */}
@@ -33,7 +32,7 @@ const Menu = () => {
         {/* button */}
         <MenuButton
           btnText={"open your favorite food"}
-          btnLink={"/order"}
+          btnLink={`/order/salad`}
         />
       </section>
 
@@ -46,7 +45,7 @@ const Menu = () => {
         {/* button */}
         <MenuButton
           btnText={"Order your favorite food"}
-          btnLink={"/order"}
+          btnLink={`/order/dessert`}
         />
       </section>
 
@@ -59,7 +58,7 @@ const Menu = () => {
         {/* button */}
         <MenuButton
           btnText={"Order your favorite food"}
-          btnLink={"/order"}
+          btnLink={"/order/pizza"}
         />
       </section>
 
@@ -72,7 +71,7 @@ const Menu = () => {
         {/* button */}
         <MenuButton
           btnText={"Order your favorite food"}
-          btnLink={"/order"}
+          btnLink={"/order/salad"}
         />
       </section>
 
@@ -85,7 +84,7 @@ const Menu = () => {
         {/* button */}
         <MenuButton
           btnText={"Order your favorite food"}
-          btnLink={"/order"}
+          btnLink={"/order/soup"}
         />
       </section>
 

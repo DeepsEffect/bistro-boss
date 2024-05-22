@@ -6,13 +6,19 @@ import "react-tabs/style/react-tabs.css";
 import { useState } from "react";
 import FoodCard from "../../components/FoodCard/FoodCard";
 import useMenu from "../../hooks/useMenu";
+import { useParams } from "react-router-dom";
 const Order = () => {
-  const [tabIndex, setTabIndex] = useState(0);
+  const categories = ["salad", "pizza", "soup", "dessert", "drinks"];
+  const { category } = useParams();
+  const initialIndex = categories.indexOf(category);
+  const [tabIndex, setTabIndex] = useState(initialIndex);
+
   const [menu] = useMenu();
   const dessert = menu?.filter((item) => item.category === "dessert");
   const pizza = menu?.filter((item) => item.category === "pizza");
   const salad = menu?.filter((item) => item.category === "salad");
   const soup = menu?.filter((item) => item.category === "soup");
+
   return (
     <section>
       <SectionBannerParallax
@@ -39,16 +45,28 @@ const Order = () => {
             </div>
           </TabPanel>
           <TabPanel>
-            <h2>pizza</h2>
+            <div className="grid grid-cols-1 lg:grid-cols-3 gap-10 mt-10">
+              {pizza?.map((s) => (
+                <FoodCard key={s._id} items={s} />
+              ))}
+            </div>
           </TabPanel>
           <TabPanel>
-            <h2>soup</h2>
+            <div className="grid grid-cols-1 lg:grid-cols-3 gap-10 mt-10">
+              {soup?.map((s) => (
+                <FoodCard key={s._id} items={s} />
+              ))}
+            </div>
           </TabPanel>
           <TabPanel>
-            <h2>dessert</h2>
+            <div className="grid grid-cols-1 lg:grid-cols-3 gap-10 mt-10">
+              {dessert?.map((s) => (
+                <FoodCard key={s._id} items={s} />
+              ))}
+            </div>
           </TabPanel>
           <TabPanel>
-            <h2>drinks</h2>
+            <h2>drinks coming soon...</h2>
           </TabPanel>
         </Tabs>
       </section>

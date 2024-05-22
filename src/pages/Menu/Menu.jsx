@@ -9,7 +9,7 @@ import saladImg from '../../assets/menu/salad-bg.jpg'
 import soupImg from '../../assets/menu/soup-bg.jpg'
 const Menu = () => {
   const [menu] = useMenu();
-  console.log(menu);
+  // console.log(menu);
   const offered = menu?.filter((item) => item.category === "offered");
   const dessert = menu?.filter((item) => item.category === "dessert");
   const pizza = menu?.filter((item) => item.category === "pizza");

@@ -1,8 +1,31 @@
 /* eslint-disable react/prop-types */
+import useAuth from "../../hooks/useAuth";
+import useAxiosCommon from "../../hooks/useAxiosCommon";
 
 const FoodCard = ({ items }) => {
+  const { user } = useAuth();
+  const axiosCommon = useAxiosCommon();
   const handleAddToCart = (food) => {
-    console.log(food);
+    console.log(food, user?.email);
+    if (user && user.email) {
+      // send user to the database
+      const cartItem = {
+        menuId: items._id,
+        email: user.email,
+        name: items.name,
+        image: items.image,
+        price: items.price,
+      };
+      // console.log(cartItem);
+      axiosCommon.post("/cart", cartItem).then((res) => {
+        console.log(res.data);
+        if (res.data.insertedId) {
+          alert("item added to cart");
+        }
+      });
+    } else {
+      alert("login to add cart item");
+    }
   };
   return (
     <div className="flex items-center justify-center from-[#F9F5F3] via-[#F9F5F3] to-[#F9F5F3]">

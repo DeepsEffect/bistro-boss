@@ -1,6 +1,8 @@
 import { Button } from "@material-tailwind/react";
+import { useContext } from "react";
 import { useForm } from "react-hook-form";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../../providers/AuthProvider";
 
 const Register = () => {
   const {
@@ -9,9 +11,13 @@ const Register = () => {
     watch,
     formState: { errors },
   } = useForm();
+  const { registerUser } = useContext(AuthContext);
 
   const onSubmit = (data) => {
     console.log(data);
+    registerUser(data.email, data.password).then((result) =>
+      console.log(result.user)
+    );
   };
   const password = watch("password");
 
@@ -74,7 +80,6 @@ const Register = () => {
           >
             Log in
           </Link>
-          .
         </div>
       </form>
     </div>

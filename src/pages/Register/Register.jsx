@@ -6,13 +6,14 @@ const Register = () => {
   const {
     register,
     handleSubmit,
-    // watch,
+    watch,
     formState: { errors },
   } = useForm();
 
   const onSubmit = (data) => {
     console.log(data);
   };
+  const password = watch("password");
 
   return (
     <div className="bg-grey-lighter min-h-screen flex flex-col">
@@ -32,22 +33,33 @@ const Register = () => {
           <input
             type="text"
             className="block border border-grey-light w-full p-3 rounded mb-4"
-            {...register("email")}
+            {...register("email", {
+              required: "email is required",
+            })}
             placeholder="Email"
           />
+          {errors.email && <p>{errors.email.message}</p>}
 
           <input
             type="password"
             className="block border border-grey-light w-full p-3 rounded mb-4"
-            {...register("password")}
+            {...register("password", {
+              required: "password is required",
+            })}
             placeholder="Password"
           />
+          {errors.password && <p>{errors.password.message}</p>}
           <input
             type="password"
             className="block border border-grey-light w-full p-3 rounded mb-4"
-            {...register("confirmPassword")}
+            {...register("confirmPassword", {
+              required: "please confirm your password",
+              validate: (value) =>
+                value === password || "Password do not match",
+            })}
             placeholder="Confirm Password"
           />
+          {errors.confirmPassword && <p>{errors.confirmPassword.message}</p>}
 
           <Button type="submit" className="w-full bg-amber-600">
             Create Account

@@ -1,6 +1,19 @@
 import { Link } from "react-router-dom";
+import useAuth from "../../hooks/useAuth";
 
 const Login = () => {
+  const { loginUser } = useAuth();
+
+  const handleLogin = (e) => {
+    e.preventDefault();
+    const form = e.target;
+    const email = form.email.value;
+    const password = form.password.value;
+    console.log(email, password);
+    loginUser(email, password).then((result) => {
+      console.log(result);
+    });
+  };
   return (
     <div className="flex min-h-full flex-1 flex-col justify-center px-6 py-12 lg:px-8 lg:mt-20">
       <div className="sm:mx-auto sm:w-full sm:max-w-sm">
@@ -15,7 +28,7 @@ const Login = () => {
       </div>
 
       <div className="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
-        <form className="space-y-6" action="#" method="POST">
+        <form onSubmit={handleLogin} className="space-y-6">
           <div>
             <label
               htmlFor="email"

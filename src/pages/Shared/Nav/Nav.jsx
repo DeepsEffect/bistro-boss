@@ -1,7 +1,13 @@
 import { Link } from "react-router-dom";
 import logo from "../../../assets/logo.png";
-import { Button } from "@material-tailwind/react";
+import { Badge, Button } from "@material-tailwind/react";
+import useAuth from "../../../hooks/useAuth";
 const Nav = () => {
+  const { user, logOut } = useAuth();
+
+  const handleLogout = () => {
+    logOut();
+  };
   return (
     <nav className="w-full fixed top-0 z-10 text-white bg-[#15151580]">
       <div className="flex flex-wrap items-center justify-between mx-auto p-4">
@@ -67,12 +73,20 @@ const Nav = () => {
             </li>
 
             <li>
-              <Link
-                to={"cart"}
-                className="block py-2 px-3 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:p-0 dark:text-white dark:hover:text-white md:dark:hover:bg-transparent"
-              >
-                Cart
-              </Link>
+              <Badge content="0" withBorder>
+                <Button
+                  ripple={false}
+                  size="sm"
+                  className="bg-transparent border-none hover:shadow-none shadow-none"
+                >
+                  <Link
+                    to={"cart"}
+                    className="block py-2 px-3 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:p-0 dark:text-white dark:hover:text-white md:dark:hover:bg-transparent"
+                  >
+                    Cart
+                  </Link>
+                </Button>
+              </Badge>
             </li>
             <li>
               <Link
@@ -83,12 +97,21 @@ const Nav = () => {
               </Link>
             </li>
             <li>
-              <Link
-                to={"/login"}
-                className="block py-2 px-3 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:p-0 dark:text-white dark:hover:text-white md:dark:hover:bg-transparent"
-              >
-                <Button color="amber">Login</Button>
-              </Link>
+              {user ? (
+                <div className="flex items-center gap-2">
+                  <p>{user.email}</p>
+                  <Button onClick={handleLogout}>logout</Button>
+                </div>
+              ) : (
+                <>
+                  <Link
+                    to={"/login"}
+                    className="block py-2 px-3 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:p-0 dark:text-white dark:hover:text-white md:dark:hover:bg-transparent"
+                  >
+                    <Button color="amber">Login</Button>
+                  </Link>
+                </>
+              )}
             </li>
           </ul>
         </div>

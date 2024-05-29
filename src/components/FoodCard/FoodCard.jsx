@@ -1,6 +1,9 @@
 /* eslint-disable react/prop-types */
 
 const FoodCard = ({ items }) => {
+  const handleAddToCart = (food) => {
+    console.log(food);
+  };
   return (
     <div className="flex items-center justify-center from-[#F9F5F3] via-[#F9F5F3] to-[#F9F5F3]">
       <div className="w-full max-w-md  mx-auto bg-white rounded-3xl shadow-xl overflow-hidden">
@@ -26,7 +29,10 @@ const FoodCard = ({ items }) => {
               </p>
             </div>
             <p className="text-[#7C7C80] font-[15px] mt-6">{items.recipe}</p>
-            <span className="block cursor-pointer mt-10 w-full px-4 py-3 font-medium tracking-wide text-center capitalize transition-colors duration-300 transform bg-[#FFC933] rounded-[14px] hover:bg-[#FFC933DD] focus:outline-none focus:ring focus:ring-teal-300 focus:ring-opacity-80">
+            <span
+              onClick={() => handleAddToCart(items)}
+              className="block cursor-pointer mt-10 w-full px-4 py-3 font-medium tracking-wide text-center capitalize transition-colors duration-300 transform bg-[#FFC933] rounded-[14px] hover:bg-[#FFC933DD] focus:outline-none focus:ring focus:ring-teal-300 focus:ring-opacity-80"
+            >
               Add to cart
             </span>
           </div>

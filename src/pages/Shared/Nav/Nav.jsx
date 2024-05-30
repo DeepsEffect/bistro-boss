@@ -2,8 +2,10 @@ import { Link } from "react-router-dom";
 import logo from "../../../assets/logo.png";
 import { Badge, Button } from "@material-tailwind/react";
 import useAuth from "../../../hooks/useAuth";
+import useCart from "../../../hooks/useCart";
 const Nav = () => {
   const { user, logOut } = useAuth();
+  const [cart] = useCart();
 
   const handleLogout = () => {
     logOut();
@@ -73,7 +75,7 @@ const Nav = () => {
             </li>
 
             <li>
-              <Badge content="0" withBorder>
+              <Badge content={cart?.length} withBorder>
                 <Button
                   ripple={false}
                   size="sm"

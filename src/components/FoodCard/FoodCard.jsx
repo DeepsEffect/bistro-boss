@@ -1,10 +1,13 @@
 /* eslint-disable react/prop-types */
 import useAuth from "../../hooks/useAuth";
 import useAxiosCommon from "../../hooks/useAxiosCommon";
+import useCart from "../../hooks/useCart";
 
 const FoodCard = ({ items }) => {
   const { user } = useAuth();
   const axiosCommon = useAxiosCommon();
+  const [, refetch] = useCart();
+
   const handleAddToCart = (food) => {
     console.log(food, user?.email);
     if (user && user.email) {
@@ -21,6 +24,7 @@ const FoodCard = ({ items }) => {
         console.log(res.data);
         if (res.data.insertedId) {
           alert("item added to cart");
+          refetch();
         }
       });
     } else {

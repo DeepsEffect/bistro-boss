@@ -23,7 +23,6 @@ const FoodCard = ({ items }) => {
       axiosCommon.post("/cart", cartItem).then((res) => {
         console.log(res.data);
         if (res.data.insertedId) {
-          alert("item added to cart");
           refetch();
         }
       });
